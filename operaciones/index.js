@@ -1,7 +1,25 @@
-const importacion = require("./multiplicacion");
-const { resta } = require("./resta");
-const operacionSuma = require("./suma");
+let dato = null;
 
-console.log(importacion.multiplicacion(3, 5));
-console.log(operacionSuma(5, 3));
-console.log(resta(5, 3));
+const saludo = () => console.log('Hola')
+
+const mensaje = (mensaje) => {
+    console.log(
+        `Son las: ${new Date().getHours()} horas con ${new Date().getMinutes()} minutos. ${mensaje}`
+    )
+    dato = 'Dato importante';
+}
+
+const despedida = ()=> console.log('Tu dato es:', dato);
+
+saludo();
+setTimeout(()=>mensaje('primero'),0000);
+setTimeout(()=>mensaje('segundo'),mensaje,0);
+despedida();
+
+
+const promesa = new Promise((resolve, reject)=>{
+    
+    reject('BAD');
+})
+
+promesa.then(valor => console.log(valor)).catch(valor=>console.log(valor));
